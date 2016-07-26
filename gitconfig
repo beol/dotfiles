@@ -1,0 +1,18 @@
+[core]
+	excludesFile = ~/.gitignore
+[color]
+	ui = true
+[alias]
+	co = checkout
+	in = init
+	br = branch
+	st = status
+	ci = commit
+	fe = fetch
+	pu = pull
+[push]
+    default = simple
+[include]
+    path = ~/.gitconfig.local
+[fetch]
+    prune = true
