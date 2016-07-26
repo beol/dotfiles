@@ -11,7 +11,7 @@
 	fe = fetch
 	pu = pull
 [push]
-    default = simple
+    default = current
 [include]
     path = ~/.gitconfig.local
 [fetch]
