@@ -1,15 +1,16 @@
 [core]
-	excludesFile = ~/.gitignore
+    excludesFile = ~/.gitignore
 [color]
-	ui = true
+    ui = true
+    diff = true
 [alias]
-	co = checkout
-	in = init
-	br = branch
-	st = status
-	ci = commit
-	fe = fetch
-	pu = pull
+    co = checkout
+    in = init
+    br = branch
+    st = status
+    ci = commit
+    fe = fetch
+    pu = pull
 [push]
     default = current
 [include]
