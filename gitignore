@@ -1,7 +1,11 @@
 .idea/
 
+.*~
 .DS_Store
+.rvmrc.*
+
 *~
 *.bak
 *.swp
-.rvmrc.*
+*.orig
+
