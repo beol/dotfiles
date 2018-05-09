@@ -1,4 +1,7 @@
 .idea/
+.venv/
+node_modules/
+venv/
 
 .*~
 .DS_Store
@@ -6,6 +9,7 @@
 
 *~
 *.bak
-*.swp
+*.iml
 *.orig
+*.swp
 
