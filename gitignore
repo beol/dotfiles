@@ -11,5 +11,7 @@ venv/
 *.bak
 *.iml
 *.orig
+*.patch
+*.rej
 *.swp
 
