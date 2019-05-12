@@ -1,3 +1,5 @@
+[user]
+    name = Leo Laksmana
 [core]
     excludesFile = ~/.gitignore
 [color]
@@ -12,7 +14,7 @@
     fe = fetch
     pu = pull
 [push]
-    default = current
+    default = simple
 [fetch]
     prune = true
 [include]
