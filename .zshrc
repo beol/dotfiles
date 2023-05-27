@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Volumes/Data/Users/beol/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -95,13 +95,16 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/share/man:$MANPATH"
 
 # You may need to manually set your language environment
-#export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -122,6 +125,20 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias ll="ls -l"
 alias la="ls -alF"
+alias flushdnscache="sudo killall -HUP mDNSResponder"
+alias restartmdns="sudo sh -c 'killall -STOP mDNSResponder && killall -CONT mDNSResponder'"
+
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+
+setopt PROMPT_SUBST
+# PROMPT="%(?:%{%}➜ :%{%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+autoload -Uz vcs_info
+precmd() { 
+    print -rP "%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)" 
+}
+PROMPT="%(?:%{%}➜ :%{%}➜ )"
+unset RPROMPT
+
