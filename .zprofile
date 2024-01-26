@@ -1,6 +1,8 @@
+export PATH=$HOME/bin:/usr/local/sbin:$PATH
+
 if [[ -x "/usr/local/bin/brew" ]]; then 
     export BREW_PREFIX=$(brew --prefix)
-    export PATH=$BREW_PREFIX/opt/openssl/bin:$BREW_PREFIX/opt/apr/bin:$BREW_PREFIX/opt/apr-util/bin:$BREW_PREFIX/opt/gpg-agent/bin:$BREW_PREFIX/opt/node@16/bin:$BREW_PREFIX/opt/ruby/bin:$PATH
+    export PATH=$BREW_PREFIX/opt/influxdb@1/bin:$BREW_PREFIX/opt/openssl/bin:$BREW_PREFIX/opt/apr/bin:$BREW_PREFIX/opt/apr-util/bin:$BREW_PREFIX/opt/gpg-agent/bin:$BREW_PREFIX/opt/node@16/bin:$BREW_PREFIX/opt/ruby/bin:$PATH
 fi
 
 [[ -n "$SSH_AUTH_SOCK" ]] && ssh-add --apple-use-keychain -q
@@ -13,7 +15,7 @@ export MAVEN_OPTS="-Xms2048m -Xmx2048m"
 
 export JRUBY_OPTS="--dev -J-Xms2048m -J-Xmx2048m"
 
-export PATH=/usr/local/sbin:$HOME/bin:$PATH
+export PATH=$HOME/.docker/bin:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH=$PATH:$HOME/.rvm/bin

@@ -129,6 +129,7 @@ alias ll="ls -l"
 alias la="ls -alF"
 alias flushdnscache="sudo killall -HUP mDNSResponder"
 alias restartmdns="sudo sh -c 'killall -STOP mDNSResponder && killall -CONT mDNSResponder'"
+alias brewup="brew update && brew upgrade"
 
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
