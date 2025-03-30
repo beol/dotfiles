@@ -95,7 +95,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-if [[ -z "$HOMEBREW_PREFIX" ]]; then
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
     source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
