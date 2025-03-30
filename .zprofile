@@ -20,7 +20,13 @@ if [[ -n "$HOMEBREW_PREFIX" ]]; then
     export PATH=$HOMEBREW_PREFIX/opt/ruby/bin:$PATH
 fi
 
-[[ -n "$SSH_AUTH_SOCK" ]] && ssh-add --apple-use-keychain -q
+if [[ -n "$SSH_AUTH_SOCK" ]]; then
+  if [[ "$(uname)" == "Darwin" ]]; then
+    ssh-add --apple-use-keychain -q 2>/dev/null
+  else
+    ssh-add -q 2>/dev/null
+  fi
+fi
 
 if [[ -x "/usr/libexec/java_home" ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
