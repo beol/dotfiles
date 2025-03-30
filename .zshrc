@@ -137,10 +137,9 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 
 setopt PROMPT_SUBST
-# PROMPT="%(?:%{%}➜ :%{%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
 autoload -Uz vcs_info
-precmd() { 
-    print -rP "%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)" 
+precmd() {
+    print -rP "%{$fg[green]%}%m%{$reset_color%} %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)"
 }
 PROMPT="%(?:%{%}➜ :%{%}➜ )"
 unset RPROMPT
