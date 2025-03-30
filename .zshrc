@@ -95,7 +95,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
     source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -114,10 +114,12 @@ export LC_ALL=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+export EDITOR='vim'
+export GIT_CONFIG=$HOME/.dotfiles/gitconfig
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
