@@ -86,8 +86,8 @@ elif [[ "$OS" == "linux" ]]; then
 fi
 
 # Git
-create_symlink "$DOTFILES_DIR/git/config" "$HOME/.gitconfig"
-create_symlink "$DOTFILES_DIR/git/ignore" "$HOME/.gitignore"
+create_symlink "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
+create_symlink "$DOTFILES_DIR/git/gitignore" "$HOME/.gitignore"
 
 # Ruby
 create_symlink "$DOTFILES_DIR/ruby/gemrc" "$HOME/.gemrc"
