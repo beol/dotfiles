@@ -1,3 +1,5 @@
+# Repository-specific ignores
+
 # ZSH specific
 .zcompdump*
 .zsh_history
@@ -5,32 +7,8 @@
 zsh/_zshenv
 zsh/*.orig
 
-# Vim swap files
-*.swp
-*.swo
-*~
-
-# Backup files
-*.bak
-*.backup
-*.orig
-*un~
-
-# macOS specific
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-
-# Temporary files
-*.log
-*.tmp
-
-# Editor specific
-.vscode/
-.idea/
-*.sublime-*
-
 # Local configuration files that shouldn't be committed
 .gitconfig.local
+
+# Temporary files specific to this repository
+Untitled-1.md
