@@ -34,9 +34,23 @@ create_symlink() {
         mv "$dst" "$BACKUP_DIR/$(basename "$dst")"
     fi
     
-    # Create the symlink
-    echo -e "${GREEN}Creating link:${NC} $dst -> $src"
-    ln -s "$src" "$dst"
+    # Check if destination still exists (backup might have failed)
+    if [ -e "$dst" ]; then
+        echo -e "${YELLOW}Warning:${NC} $dst still exists after backup attempt."
+        read -p "Force create symlink? (y/n): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            echo -e "${GREEN}Forcing symlink creation:${NC} $dst -> $src"
+            ln -sf "$src" "$dst"
+        else
+            echo -e "${YELLOW}Skipping:${NC} $dst"
+            return
+        fi
+    else
+        # Create the symlink normally
+        echo -e "${GREEN}Creating link:${NC} $dst -> $src"
+        ln -s "$src" "$dst"
+    fi
 }
 
 # Function to detect OS
