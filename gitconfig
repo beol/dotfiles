@@ -1,7 +1,10 @@
 [user]
-    name = Leo Laksmana
+	name = Leo Laksmana
+	email = beol@example.com
 [core]
     excludesFile = ~/.gitignore
+	eol = lf
+	autocrlf = false
 [color]
     ui = true
     diff = true
@@ -17,7 +20,25 @@
     default = simple
 [fetch]
     prune = true
-[include]
-    path = ~/.gitconfig.local
+[diff]
+    tool = vimdiff
+    guitool = p4merge
+[difftool "p4merge"]
+    cmd = p4merge "$LOCAL" "$REMOTE"
+    trustExitCode = false
+[merge]
+    tool = p4merge
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = false
+    leepBackup = false
 [init]
 	defaultBranch = main
+[fsck]
+	zeroPaddedFilemode = ignore
+[fetch "fsck"]
+	zeroPaddedFilemode = ignore
+[receive "fsck"]
+	zeroPaddedFilemode = ignore
+[oh-my-zsh]
+	lastVersion = 18e7e5d0339f3491a6c0324e2443415309b56173
