@@ -1,0 +1,8 @@
+#!/bin/bash
+# Bash configuration for interactive non-login shells
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Source bash_profile which will load all the common and bash-specific configurations
+[ -r "$HOME/.bash_profile" ] && source "$HOME/.bash_profile"

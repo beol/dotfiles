@@ -1,7 +1,20 @@
-# Zsh files
+# ZSH specific
 .zcompdump*
 .zsh_history
 .zsh_sessions/
+zsh/_zshenv
+zsh/*.orig
+
+# Vim swap files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+*.orig
+*un~
 
 # macOS specific
 .DS_Store
@@ -9,41 +22,15 @@
 .LSOverride
 Icon
 ._*
-.Spotlight-V100
-.Trashes
 
-# Vim swap files
-*.swp
-*.swo
-*~
-*.un~
-
-# Logs and databases
+# Temporary files
 *.log
-*.sql
-*.sqlite
+*.tmp
 
-# Compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# Editor specific
+.vscode/
+.idea/
+*.sublime-*
 
-# Packages
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# Local configuration files that might contain sensitive information
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Local configuration files that shouldn't be committed
+.gitconfig.local
