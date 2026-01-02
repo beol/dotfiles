@@ -4,11 +4,6 @@
 .zcompdump*
 .zsh_history
 .zsh_sessions/
-zsh/_zshenv
-zsh/*.orig
 
 # Local configuration files that shouldn't be committed
 .gitconfig.local
-
-# Temporary files specific to this repository
-Untitled-1.md
