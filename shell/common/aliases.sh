@@ -6,7 +6,7 @@ alias ll="ls -l"
 alias la="ls -alF"
 
 # macOS specific
-if [[ "$(uname -o)" = "Darwin" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
     # DNS cache management
     alias flushdnscache="sudo killall -HUP mDNSResponder"
     alias restartmdns="sudo sh -c 'killall -STOP mDNSResponder && killall -CONT mDNSResponder'"

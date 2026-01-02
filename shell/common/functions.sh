@@ -84,7 +84,11 @@ getcertnames() {
 # Start an HTTP server from a directory
 server() {
     local port="${1:-8000}"
-    python -m SimpleHTTPServer "$port"
+    if command -v python3 >/dev/null 2>&1; then
+        python3 -m http.server "$port"
+    else
+        python -m SimpleHTTPServer "$port"
+    fi
 }
 
 # Weather forecast
