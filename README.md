@@ -2,6 +2,25 @@
 
 A collection of configuration files for various tools and shells.
 
+## Prerequisites
+
+Before installing, ensure you have the following installed:
+
+- **Zsh**: Most modern systems have this by default.
+- **Oh My Zsh**: Required for the Zsh configuration. Install it via:
+  ```bash
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ```
+- **Git**: Required for cloning the repository and many aliases.
+
+### Optional Plugins (Recommended)
+
+To get the most out of the Zsh configuration, install these plugins via Homebrew:
+
+```bash
+brew install zsh-autosuggestions zsh-syntax-highlighting
+```
+
 ## Features
 
 - **Shell Configurations**: ZSH and Bash configurations with useful aliases and functions
