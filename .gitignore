@@ -1,49 +1,9 @@
-# Zsh files
+# Repository-specific ignores
+
+# ZSH specific
 .zcompdump*
 .zsh_history
 .zsh_sessions/
 
-# macOS specific
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
-
-# Vim swap files
-*.swp
-*.swo
-*~
-*.un~
-
-# Logs and databases
-*.log
-*.sql
-*.sqlite
-
-# Compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Packages
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# Local configuration files that might contain sensitive information
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Local configuration files that shouldn't be committed
+.gitconfig.local

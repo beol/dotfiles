@@ -1,10 +1,12 @@
 [user]
-	name = Leo Laksmana
-	email = beol@example.com
+    name = Leo Laksmana
+    email = beol@example.com
 [core]
-    excludesFile = ~/.gitignore
-	eol = lf
-	autocrlf = false
+    excludesFile = ~/.dotfiles/git/gitignore
+    eol = lf
+    autocrlf = false
+[include]
+    path = ~/.gitconfig.local
 [color]
     ui = true
     diff = true
@@ -33,12 +35,12 @@
     trustExitCode = false
     leepBackup = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [fsck]
-	zeroPaddedFilemode = ignore
+    zeroPaddedFilemode = ignore
 [fetch "fsck"]
-	zeroPaddedFilemode = ignore
+    zeroPaddedFilemode = ignore
 [receive "fsck"]
-	zeroPaddedFilemode = ignore
+    zeroPaddedFilemode = ignore
 [oh-my-zsh]
-	lastVersion = 18e7e5d0339f3491a6c0324e2443415309b56173
+    lastVersion = 3e7ef0182f59c7990a52cf6ec2981adb56d5b368

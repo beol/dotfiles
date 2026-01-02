@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+# Get OS information
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS="macOS $(sw_vers -productVersion)"
+    KERNEL=$(uname -r)
+    UPTIME=$(uptime | awk '{print $3,$4}' | sed 's/,//')
+    SHELL=$(echo $SHELL)
+    CPU=$(sysctl -n machdep.cpu.brand_string)
+    MEM=$(sysctl -n hw.memsize | awk '{print $0/1073741824 " GB"}')
+    DISK=$(df -h | grep disk1s1 | awk '{print $4 " / " $2 " (" $5 " used)"}')
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    OS=$(cat /etc/os-release | grep PRETTY_NAME | cut -d'"' -f2)
+    KERNEL=$(uname -r)
+    UPTIME=$(uptime -p)
+    SHELL=$(echo $SHELL)
+    CPU=$(grep "model name" /proc/cpuinfo | head -1 | cut -d':' -f2 | sed 's/^ //')
+    MEM=$(free -h | grep Mem | awk '{print $7 " / " $2}')
+    DISK=$(df -h / | tail -1 | awk '{print $4 " / " $2 " (" $5 " used)"}')
+else
+    OS="Unknown"
+    KERNEL=$(uname -r)
+    UPTIME=$(uptime)
+    SHELL=$(echo $SHELL)
+    CPU="Unknown"
+    MEM="Unknown"
+    DISK="Unknown"
+fi
+
+# Print system information
+echo -e "${BLUE}System Information${NC}"
+echo -e "${GREEN}OS:${NC}        $OS"
+echo -e "${GREEN}Kernel:${NC}    $KERNEL"
+echo -e "${GREEN}Uptime:${NC}    $UPTIME"
+echo -e "${GREEN}Shell:${NC}     $SHELL"
+echo -e "${GREEN}CPU:${NC}       $CPU"
+echo -e "${GREEN}Memory:${NC}    $MEM"
+echo -e "${GREEN}Disk:${NC}      $DISK"
+echo -e "${GREEN}User:${NC}      $(whoami)@$(hostname)"
+echo -e "${GREEN}IP:${NC}        $(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}' | head -1)"
