@@ -68,6 +68,14 @@ detect_os() {
 OS=$(detect_os)
 echo -e "${BLUE}Detected OS:${NC} $OS"
 
+# Check for Oh My Zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo -e "${RED}Error: Oh My Zsh is not installed.${NC}"
+    echo "Please install it from https://ohmyz.sh/ before running this script."
+    echo "Run: sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+    exit 1
+fi
+
 # Create symlinks
 echo -e "\n${BLUE}Creating symlinks...${NC}"
 
