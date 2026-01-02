@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Documentation inaccuracies in `README.md` regarding shell loading order, OS-specific manual installation steps, and git configuration filenames.
 - Critical macOS compatibility issues by replacing `uname -o` with `uname -s`.
 - Infinite recursion loop in Bash startup configuration.
 - `server` alias compatibility with Python 3.

@@ -105,8 +105,8 @@ ln -s ~/.dotfiles/zsh/.zshenv ~/.zshenv
 # ln -s ~/.dotfiles/zsh/.zprofile ~/.zprofile
 
 # Git
-ln -s ~/.dotfiles/git/config ~/.gitconfig
-ln -s ~/.dotfiles/git/ignore ~/.gitignore
+ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/git/gitignore ~/.gitignore
 
 # Ruby
 ln -s ~/.dotfiles/ruby/gemrc ~/.gemrc
@@ -114,8 +114,12 @@ ln -s ~/.dotfiles/ruby/gemrc ~/.gemrc
 # Tmux
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-# Bash
+# Bash (macOS)
 ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
+ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
+ln -s ~/.dotfiles/bash/inputrc ~/.inputrc
+
+# Bash (Linux)
 ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
 ln -s ~/.dotfiles/bash/inputrc ~/.inputrc
 ```
@@ -139,8 +143,23 @@ The repository uses a DRY (Don't Repeat Yourself) approach to shell configuratio
    - `zsh_specific.sh`: Zsh-specific settings (Oh My Zsh, plugins, etc.)
 
 3. **Loading Order**:
-   - Zsh: `~/.zshenv` → sets ZDOTDIR → `$ZDOTDIR/.zprofile` (sources common files) → `$ZDOTDIR/.zshrc` (sources zsh_specific.sh)
-   - Bash: `~/.bash_profile` (sources common files and bash_specific.sh) → `~/.bashrc`
+
+```mermaid
+graph TD
+    subgraph Zsh ["Zsh Loading Flow"]
+        ZEnv["~/.zshenv"] -->|Sets ZDOTDIR| ZDir{ZDOTDIR}
+        ZDir --> ZProf["$ZDOTDIR/.zprofile"]
+        ZDir --> ZRc["$ZDOTDIR/.zshrc"]
+        ZProf -->|Sources| Common[Common Configs]
+        ZRc -->|Sources| ZSpecific[Zsh Specific]
+    end
+
+    subgraph Bash ["Bash Loading Flow"]
+        BProf["~/.bash_profile"] -->|Sources| BRc["~/.bashrc"]
+        BRc -->|Sources| Common
+        BRc -->|Sources| BSpecific[Bash Specific]
+    end
+```
 
 ## Customization
 
