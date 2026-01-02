@@ -5,7 +5,7 @@
 [[ -s /etc/bashrc ]] && source /etc/bashrc
 
 # Bash completion
-if [[ "$(uname -o)" = "Darwin" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
     # macOS specific completions
     if [[ -n "$HOMEBREW_PREFIX" ]]; then
         [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
@@ -55,7 +55,9 @@ if ! shopt -oq posix; then
 fi
 
 # TMUX specific settings
+# Note: Avoid unsetting PATH as it removes dotfiles path settings.
+# If you need to refresh the environment, do it carefully.
 if [ -n "${TMUX}" ]; then
-    unset PATH
-    . /etc/profile
+    # . /etc/profile # Only if absolutely necessary
+    :
 fi

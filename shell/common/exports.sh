@@ -8,9 +8,6 @@ export LC_ALL=en_US.UTF-8
 # Editor
 export EDITOR='vim'
 
-# Git configuration
-export GIT_CONFIG=$HOME/.dotfiles/git/config
-
 # Java options
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true"
 
@@ -31,6 +28,8 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export GPG_TTY=$(tty)
 
 # 1Password SSH agent (macOS only)
-if [[ "$(uname -o)" = "Darwin" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
     export SSH_AUTH_SOCK=~/.1password/agent.sock
 fi
+
+export NODE_EXTRA_CA_CERTS=$HOME/.dotfiles/custom_ca.crt

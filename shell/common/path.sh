@@ -8,7 +8,7 @@ export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # macOS specific PATH modifications
-if [[ "$(uname -o)" = "Darwin" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
     # Set up Homebrew based on architecture (Intel vs ARM)
     if [[ "$(uname -m)" = "arm64" ]]; then
         if [[ -x "/opt/homebrew/bin/brew" ]]; then
@@ -59,6 +59,10 @@ fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH=$PATH:$HOME/.rvm/bin
+
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+
+[[ -d "$HOME/.docker/bin" ]] && export PATH="$HOME/.docker/bin:$PATH"
 
 # Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

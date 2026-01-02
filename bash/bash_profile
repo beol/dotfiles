@@ -1,13 +1,5 @@
 #!/bin/bash
 # Bash profile for login shells
 
-# Source common configuration files
-for file in $HOME/.dotfiles/shell/common/{path,exports,aliases,functions}.sh; do
-    [ -r "$file" ] && source "$file"
-done
-
-# Source bash-specific configuration
-[ -r "$HOME/.dotfiles/shell/bash_specific.sh" ] && source "$HOME/.dotfiles/shell/bash_specific.sh"
-
 # Source bashrc if it exists
 [ -r "$HOME/.bashrc" ] && source "$HOME/.bashrc"
