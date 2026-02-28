@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     SHELL=$(echo $SHELL)
     CPU=$(sysctl -n machdep.cpu.brand_string)
     MEM=$(sysctl -n hw.memsize | awk '{print $0/1073741824 " GB"}')
-    DISK=$(df -h | grep disk1s1 | awk '{print $4 " / " $2 " (" $5 " used)"}')
+    DISK=$(df -h / | tail -1 | awk '{print $4 " / " $2 " (" $5 " used)"}')
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     OS=$(cat /etc/os-release | grep PRETTY_NAME | cut -d'"' -f2)
     KERNEL=$(uname -r)
