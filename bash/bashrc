@@ -11,3 +11,6 @@ done
 
 # Source bash-specific configuration
 [ -r "$HOME/.dotfiles/shell/bash_specific.sh" ] && source "$HOME/.dotfiles/shell/bash_specific.sh"
+
+# Source machine-specific local overrides (not tracked by repo)
+[ -r "$HOME/.shell_local.sh" ] && source "$HOME/.shell_local.sh"

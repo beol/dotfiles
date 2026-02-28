@@ -1,0 +1,10 @@
+# Machine-specific git configuration — not tracked by dotfiles repo
+# Copy: cp ~/.dotfiles/git/gitconfig.local.template ~/.gitconfig.local
+
+[user]
+    name = Your Name
+    email = your.email@example.com
+
+# Optional: machine-specific credential helper
+# [credential]
+#     helper = osxkeychain
