@@ -7,3 +7,10 @@
 
 # Local configuration files that shouldn't be committed
 .gitconfig.local
+
+# Certificate files (security - never commit certificates)
+*.crt
+*.pem
+*.key
+*.p12
+*.pfx

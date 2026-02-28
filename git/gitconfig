@@ -1,6 +1,3 @@
-[user]
-    name = Leo Laksmana
-    email = beol@example.com
 [core]
     excludesFile = ~/.dotfiles/git/gitignore
     eol = lf
@@ -33,7 +30,7 @@
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
     trustExitCode = false
-    leepBackup = false
+    keepBackup = false
 [init]
     defaultBranch = main
 [fsck]

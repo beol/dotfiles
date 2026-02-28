@@ -70,3 +70,4 @@ HISTFILE=~/.zsh_history
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
+

@@ -27,9 +27,12 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # GPG configuration
 export GPG_TTY=$(tty)
 
-# 1Password SSH agent (macOS only)
-if [[ "$(uname -s)" = "Darwin" ]]; then
-    export SSH_AUTH_SOCK=~/.1password/agent.sock
+# 1Password SSH agent (macOS only, socket must exist)
+if [[ "$(uname -s)" = "Darwin" ]] && [[ -S "$HOME/.1password/agent.sock" ]]; then
+    export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 fi
 
-export NODE_EXTRA_CA_CERTS=$HOME/.dotfiles/custom_ca.crt
+[ -f "$HOME/.dotfiles/custom_ca.crt" ] && export NODE_EXTRA_CA_CERTS="$HOME/.dotfiles/custom_ca.crt"
+
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+export CLAUDE_CODE_DISABLE_ANALYTICS=1

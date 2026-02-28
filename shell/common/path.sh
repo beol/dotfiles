@@ -39,7 +39,7 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
         [[ -d "$HOMEBREW_PREFIX/opt/apr-util/bin" ]] && export PATH=$HOMEBREW_PREFIX/opt/apr-util/bin:$PATH
         [[ -d "$HOMEBREW_PREFIX/opt/gpg-agent/bin" ]] && export PATH=$HOMEBREW_PREFIX/opt/gpg-agent/bin:$PATH
         [[ -d "$HOMEBREW_PREFIX/opt/ruby/bin" ]] && export PATH=$HOMEBREW_PREFIX/opt/ruby/bin:$PATH
-        [[ -d "$HOMEBREW_PREFIX/opt/node@20/bin" ]] && export PATH=$HOMEBREW_PREFIX/opt/node@20/bin:$PATH
+        [[ -d "$HOMEBREW_PREFIX/opt/node@24/bin" ]] && export PATH=$HOMEBREW_PREFIX/opt/node@24/bin:$PATH
     fi
 
     # Add VS Code to PATH
