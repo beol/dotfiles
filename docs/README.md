@@ -140,8 +140,8 @@ cat docs/specifications.md         # Review SPEC-001
 ### Phase 3: Quality Enhancements (60 minutes)
 **Goal:** Polish and enhance functionality
 - ✅ TASK-005: Fix disk detection in sysinfo
-- ✅ TASK-008: Document memory settings
-- ✅ TASK-006: Add dependency validation to functions
+- ⬜ TASK-008: Document memory settings
+- ⬜ TASK-006: Add dependency validation to functions
 
 **Expected Result:** Repository rating → 9.0/10
 

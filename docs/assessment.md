@@ -357,11 +357,11 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 **Timeline**: 2-4 hours
 **Priority**: High
 
-5. Add dependency validation to functions (ISSUE-006)
-6. Fix disk detection in sysinfo (ISSUE-005)
-7. Make tmux respect default shell (ISSUE-007)
-8. Add 1Password socket validation (ISSUE-009)
-9. Document memory settings (ISSUE-008)
+5. ⬜ Add dependency validation to functions (ISSUE-006)
+6. ✅ Fix disk detection in sysinfo (ISSUE-005)
+7. ✅ Make tmux respect default shell (ISSUE-007)
+8. ✅ Add 1Password socket validation (ISSUE-009)
+9. ⬜ Document memory settings (ISSUE-008)
 
 ### Phase 3: Quality & Polish (Long-term)
 **Timeline**: 4-8 hours
@@ -401,14 +401,14 @@ shellcheck **/*.sh install.sh bin/*
 
 ## Security Hardening Checklist
 
-- [ ] Remove external network calls from tmux
-- [ ] Validate all file paths before setting environment variables
-- [ ] Review and sanitize all exported variables
-- [ ] Add .gitconfig.local template with instructions
-- [ ] Document certificate requirements
+- [x] Remove external network calls from tmux
+- [x] Validate all file paths before setting environment variables
+- [x] Review and sanitize all exported variables
+- [x] Add .gitconfig.local template with instructions
+- [ ] Document certificate requirements in README
 - [ ] Add security section to README
 - [ ] Review all curl/wget calls for safety
-- [ ] Ensure no secrets or tokens in repository
+- [x] Ensure no secrets or tokens in repository
 
 ---
 
