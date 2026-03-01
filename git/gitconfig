@@ -19,18 +19,6 @@
     default = simple
 [fetch]
     prune = true
-[diff]
-    tool = vimdiff
-    guitool = p4merge
-[difftool "p4merge"]
-    cmd = p4merge "$LOCAL" "$REMOTE"
-    trustExitCode = false
-[merge]
-    tool = p4merge
-[mergetool "p4merge"]
-    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    trustExitCode = false
-    keepBackup = false
 [init]
     defaultBranch = main
 [fsck]
