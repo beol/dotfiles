@@ -37,4 +37,3 @@ fi
 [ -f "$HOME/.dotfiles/custom_ca.crt" ] && export NODE_EXTRA_CA_CERTS="$HOME/.dotfiles/custom_ca.crt"
 
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
-export CLAUDE_CODE_DISABLE_ANALYTICS=1

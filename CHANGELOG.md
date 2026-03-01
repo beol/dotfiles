@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- `CLAUDE_CODE_DISABLE_ANALYTICS` export from `shell/common/exports.sh`.
+
 ### Added
 
 - ShellCheck compliance across all shell scripts: shebangs updated from
