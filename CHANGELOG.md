@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Security & Local Overrides section added to `README.md` covering: local shell
+  overrides (`~/.shell_local.sh`), required git identity setup, custom CA
+  certificate auto-detection, and 1Password SSH agent activation conditions
+  (ISSUE-012).
 - Inline comments on JVM heap settings in `shell/common/exports.sh` explaining
   what `-Xms`/`-Xmx`/`-XX:+TieredCompilation` flags do and how to override
   them per-machine via `~/.shell_local.sh` (ISSUE-008).

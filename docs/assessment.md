@@ -405,9 +405,9 @@ shellcheck **/*.sh install.sh bin/*
 - [x] Validate all file paths before setting environment variables
 - [x] Review and sanitize all exported variables
 - [x] Add .gitconfig.local template with instructions
-- [ ] Document certificate requirements in README
-- [ ] Add security section to README
-- [ ] Review all curl/wget calls for safety
+- [x] Document certificate requirements in README
+- [x] Add security section to README
+- [x] Review all curl/wget calls for safety (only call is weather() / wttr.in — user-invoked, acceptable)
 - [x] Ensure no secrets or tokens in repository
 
 ---

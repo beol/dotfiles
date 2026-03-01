@@ -167,6 +167,64 @@ graph TD
 - **Shell Functions**: Add your own functions to the common functions file
 - **Aliases**: Add your own aliases to the common aliases file
 
+## Security & Local Overrides
+
+### Local Shell Overrides (`~/.shell_local.sh`)
+
+Machine-specific configuration that should never be committed lives in
+`~/.shell_local.sh`. A template with examples is provided:
+
+```bash
+cp ~/.dotfiles/shell/local.template.sh ~/.shell_local.sh
+```
+
+Use it for LAN proxy URLs, work-specific PATH entries, project environment
+variables, and JVM heap overrides for machines with less than 4 GB RAM:
+
+```bash
+# Example: reduce JVM heap on a low-memory machine
+export MAVEN_OPTS="-Xms512m -Xmx1024m"
+```
+
+This file is loaded last (after all shared config) so its values always win.
+
+### Git Identity (`~/.gitconfig.local`)
+
+The shared `git/gitconfig` intentionally has **no `[user]` block**. You must
+set your name and email locally so they are never committed to this repo:
+
+```bash
+git config --file ~/.gitconfig.local user.name  "Your Name"
+git config --file ~/.gitconfig.local user.email "you@example.com"
+```
+
+A starter template is provided at `git/gitconfig.local.template`.
+
+### Custom CA Certificate (`NODE_EXTRA_CA_CERTS`)
+
+If you use a corporate or home-lab root CA, place the `.crt` file inside
+`~/.dotfiles/`:
+
+```bash
+cp ~/path/to/MyRoot_CA.crt ~/.dotfiles/
+```
+
+`shell/common/exports.sh` will auto-detect any `*.crt` file in that directory
+and set `NODE_EXTRA_CA_CERTS` so Node.js trusts your CA. No other action is
+needed. If no `.crt` file is present, the variable is not set and Node.js uses
+its default trust store.
+
+### 1Password SSH Agent (macOS only)
+
+`exports.sh` sets `SSH_AUTH_SOCK` to the 1Password agent socket only when
+**both** of the following are true:
+
+1. The OS is macOS (`uname -s` = Darwin)
+2. The socket file `~/.1password/agent.sock` exists
+
+If you do not use 1Password, no action is required — the conditional silently
+skips and your existing SSH agent is unaffected.
+
 ## Troubleshooting & Maintenance
 
 ### Reloading Configuration
