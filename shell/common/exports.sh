@@ -11,13 +11,14 @@ export EDITOR='vim'
 # Java options
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true"
 
-# Maven options
+# JVM build tool heap settings (2 GB initial/max for fast compilation)
+# -Xms: initial heap size  -Xmx: max heap size
+# -XX:+TieredCompilation -XX:TieredStopAtLevel=1: use interpreter-only mode
+#   to minimize JVM startup time at the cost of peak throughput
+# Override any of these in ~/.shell_local.sh for machines with less RAM,
+# e.g.: export MAVEN_OPTS="-Xms512m -Xmx1024m"
 export MAVEN_OPTS="-Xms2048m -Xmx2048m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-
-# Gradle options
 export GRADLE_OPTS="-Xms2048m -Xmx2048m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-
-# JRuby options
 export JRUBY_OPTS="--dev -J-Xms2048m -J-Xmx2048m"
 
 # Terminal colors

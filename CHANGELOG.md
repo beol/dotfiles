@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Inline comments on JVM heap settings in `shell/common/exports.sh` explaining
+  what `-Xms`/`-Xmx`/`-XX:+TieredCompilation` flags do and how to override
+  them per-machine via `~/.shell_local.sh` (ISSUE-008).
 - Dependency guards in `shell/common/functions.sh`: `extract()`, `dataurl()`,
   `getcertnames()`, `weather()`, and `fshow()` now check for required tools
   (`unrar`, `7z`, `openssl`, `curl`, `fzf`) before executing and print a
