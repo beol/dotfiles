@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- ShellCheck compliance across all shell scripts: shebangs updated from
+  `#!/bin/sh` to `#!/bin/bash` in the four common files that use bash-isms;
+  `# shellcheck shell=bash` and disable directives added to `zsh_specific.sh`;
+  `# shellcheck source=/dev/null` added to all dynamic `source` calls (ISSUE-010).
 - Security & Local Overrides section added to `README.md` covering: local shell
   overrides (`~/.shell_local.sh`), required git identity setup, custom CA
   certificate auto-detection, and 1Password SSH agent activation conditions
@@ -37,6 +41,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- SC2164: `mkcd()` now uses `cd "$1" || return` to handle `cd` failures gracefully.
+- SC2155: Separated `local` declarations from command-substitution assignments in
+  `dataurl()` and `getcertnames()` to preserve exit-code visibility.
+- SC2086: Quoted all unquoted `$HOME`/`$PATH`/`$HOMEBREW_PREFIX` expansions in
+  PATH-building statements in `path.sh`.
+- SC2155: Separated `JAVA_HOME` declaration from `$()` assignment in `path.sh`.
+- SC2155/SC2046: Split `export GPG_TTY=$(tty)` into two statements in `exports.sh`.
 - Replaced external `curl ipecho.net` calls in `tmux/tmux.conf` with local `ifconfig`
   to eliminate continuous privacy leak and offline breakage (ISSUE-001).
 - Added file existence guard (`[ -f ]`) to `NODE_EXTRA_CA_CERTS` in `exports.sh` so

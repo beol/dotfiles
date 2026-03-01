@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Common environment variables for both bash and zsh
 
 # Language environment
@@ -26,7 +26,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # GPG configuration
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # 1Password SSH agent (macOS only, socket must exist)
 if [[ "$(uname -s)" = "Darwin" ]] && [[ -S "$HOME/.1password/agent.sock" ]]; then

@@ -2,22 +2,27 @@
 # Bash-specific configurations
 
 # Source system bashrc if it exists
+# shellcheck source=/dev/null
 [[ -s /etc/bashrc ]] && source /etc/bashrc
 
 # Bash completion
 if [[ "$(uname -s)" = "Darwin" ]]; then
     # macOS specific completions
     if [[ -n "$HOMEBREW_PREFIX" ]]; then
+        # shellcheck source=/dev/null
         [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
     else
+        # shellcheck source=/dev/null
         [[ -s /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
     fi
 else
     # Linux completions
+    # shellcheck source=/dev/null
     [[ -r /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 fi
 
 # Git prompt
+# shellcheck source=/dev/null
 [[ -s /usr/local/etc/bash_completion.d/git-prompt.sh ]] && source "/usr/local/etc/bash_completion.d/git-prompt.sh"
 
 # AWS completion
@@ -48,8 +53,10 @@ shopt -s checkwinsize
 # Enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
+    # shellcheck source=/dev/null
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
+    # shellcheck source=/dev/null
     . /etc/bash_completion
   fi
 fi

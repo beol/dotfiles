@@ -357,19 +357,19 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 **Timeline**: 2-4 hours
 **Priority**: High
 
-5. ⬜ Add dependency validation to functions (ISSUE-006)
+5. ✅ Add dependency validation to functions (ISSUE-006)
 6. ✅ Fix disk detection in sysinfo (ISSUE-005)
 7. ✅ Make tmux respect default shell (ISSUE-007)
 8. ✅ Add 1Password socket validation (ISSUE-009)
-9. ⬜ Document memory settings (ISSUE-008)
+9. ✅ Document memory settings (ISSUE-008)
 
 ### Phase 3: Quality & Polish (Long-term)
 **Timeline**: 4-8 hours
 **Priority**: Medium
 
-10. Add shellcheck compliance (ISSUE-010)
+10. ✅ Add shellcheck compliance (ISSUE-010)
 11. Create automated test suite (ISSUE-011)
-12. Complete documentation (ISSUE-012)
+12. ✅ Complete documentation (ISSUE-012)
 13. Add contribution guidelines
 14. Create issue templates
 

@@ -1,4 +1,6 @@
 #!/bin/zsh
+# shellcheck shell=bash  # zsh is not supported by shellcheck; lint as bash
+# shellcheck disable=SC1087,SC2034,SC2154  # zsh associative-array syntax and zsh-only vars
 # ZSH-specific configurations
 
 # Path to your oh-my-zsh installation
@@ -35,14 +37,17 @@ plugins=(
 )
 
 # Source oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# shellcheck source=/dev/null
+source "$ZSH/oh-my-zsh.sh"
 
 # Source zsh-specific plugins if Homebrew is available
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
     # Check if the files exist before sourcing them
+    # shellcheck source=/dev/null
     [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && \
         source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-    
+
+    # shellcheck source=/dev/null
     [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && \
         source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi

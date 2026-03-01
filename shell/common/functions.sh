@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 # Common shell functions for both bash and zsh
 
 # Create a new directory and enter it
 mkcd() {
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || return
 }
 
 # Extract various compressed file formats
@@ -43,7 +43,8 @@ fd() {
 # Create a data URL from a file
 dataurl() {
     command -v openssl &>/dev/null || { echo "error: openssl is required"; return 1; }
-    local mimeType=$(file -b --mime-type "$1")
+    local mimeType
+    mimeType=$(file -b --mime-type "$1")
     if [[ $mimeType == text/* ]]; then
         mimeType="${mimeType};charset=utf-8"
     fi
@@ -63,11 +64,13 @@ getcertnames() {
     echo "Testing ${domain}…"
     echo ""; # newline
 
-    local tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
+    local tmp
+    tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
         | openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1)
 
     if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
-        local certText=$(echo "${tmp}" \
+        local certText
+        certText=$(echo "${tmp}" \
             | openssl x509 -text -certopt "no_aux, no_header, no_issuer, no_pubkey, \
             no_serial, no_sigdump, no_signame, no_validity, no_version")
         echo "Common Name:"

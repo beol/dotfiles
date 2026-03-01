@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Common aliases for both bash and zsh
 
 # Directory listing
