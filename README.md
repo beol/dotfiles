@@ -202,17 +202,15 @@ A starter template is provided at `git/gitconfig.local.template`.
 
 ### Custom CA Certificate (`NODE_EXTRA_CA_CERTS`)
 
-If you use a corporate or home-lab root CA, place the `.crt` file inside
-`~/.dotfiles/`:
+If you use a corporate or home-lab root CA, set `NODE_EXTRA_CA_CERTS` in
+`~/.shell_local.sh` so it stays off the shared dotfiles:
 
 ```bash
-cp ~/path/to/MyRoot_CA.crt ~/.dotfiles/
+export NODE_EXTRA_CA_CERTS="$HOME/.dotfiles/MyRoot_CA.crt"
 ```
 
-`shell/common/exports.sh` will auto-detect any `*.crt` file in that directory
-and set `NODE_EXTRA_CA_CERTS` so Node.js trusts your CA. No other action is
-needed. If no `.crt` file is present, the variable is not set and Node.js uses
-its default trust store.
+Node.js picks up this variable automatically. If the variable is unset,
+Node.js uses its default trust store.
 
 ### 1Password SSH Agent (macOS only)
 

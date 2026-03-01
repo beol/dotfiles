@@ -34,6 +34,4 @@ if [[ "$(uname -s)" = "Darwin" ]] && [[ -S "$HOME/.1password/agent.sock" ]]; the
     export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 fi
 
-[ -f "$HOME/.dotfiles/custom_ca.crt" ] && export NODE_EXTRA_CA_CERTS="$HOME/.dotfiles/custom_ca.crt"
-
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1

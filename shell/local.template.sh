@@ -17,3 +17,6 @@
 
 # Example: Work-specific settings
 # export WORK_ENVIRONMENT=true
+
+# Example: Custom CA certificate for Node.js (corporate or home-lab root CA)
+# export NODE_EXTRA_CA_CERTS="$HOME/.dotfiles/MyRoot_CA.crt"

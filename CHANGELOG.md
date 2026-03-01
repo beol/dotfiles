@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - `CLAUDE_CODE_DISABLE_ANALYTICS` export from `shell/common/exports.sh`.
+- `NODE_EXTRA_CA_CERTS` removed from `shell/common/exports.sh`; set it in `~/.shell_local.sh` for machine-specific CA certificates.
 
 ### Added
 
