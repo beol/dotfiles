@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Dependency guards in `shell/common/functions.sh`: `extract()`, `dataurl()`,
+  `getcertnames()`, `weather()`, and `fshow()` now check for required tools
+  (`unrar`, `7z`, `openssl`, `curl`, `fzf`) before executing and print a
+  human-readable error with install instructions when missing (ISSUE-006).
 - Local override mechanism: `shell/local.template.sh` and `git/gitconfig.local.template`
   provide templates for machine-specific settings (API proxy URLs, work credentials,
   per-machine PATH entries) that should never be committed to the shared repo.

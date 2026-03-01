@@ -13,14 +13,16 @@ extract() {
             *.tar.bz2)   tar xjf "$1"     ;;
             *.tar.gz)    tar xzf "$1"     ;;
             *.bz2)       bunzip2 "$1"     ;;
-            *.rar)       unrar e "$1"     ;;
+            *.rar)       command -v unrar &>/dev/null || { echo "error: unrar is required (brew install unar)"; return 1; }
+                         unrar e "$1" ;;
             *.gz)        gunzip "$1"      ;;
             *.tar)       tar xf "$1"      ;;
             *.tbz2)      tar xjf "$1"     ;;
             *.tgz)       tar xzf "$1"     ;;
             *.zip)       unzip "$1"       ;;
             *.Z)         uncompress "$1"  ;;
-            *.7z)        7z x "$1"        ;;
+            *.7z)        command -v 7z &>/dev/null || { echo "error: 7z is required (brew install p7zip)"; return 1; }
+                         7z x "$1" ;;
             *)           echo "'$1' cannot be extracted via extract()" ;;
         esac
     else
@@ -40,6 +42,7 @@ fd() {
 
 # Create a data URL from a file
 dataurl() {
+    command -v openssl &>/dev/null || { echo "error: openssl is required"; return 1; }
     local mimeType=$(file -b --mime-type "$1")
     if [[ $mimeType == text/* ]]; then
         mimeType="${mimeType};charset=utf-8"
@@ -50,6 +53,7 @@ dataurl() {
 # Show all the names (CNs) listed in the SSL certificate
 # for a given domain
 getcertnames() {
+    command -v openssl &>/dev/null || { echo "error: openssl is required"; return 1; }
     if [ -z "${1}" ]; then
         echo "ERROR: No domain specified."
         return 1
@@ -93,11 +97,13 @@ server() {
 
 # Weather forecast
 weather() {
+    command -v curl &>/dev/null || { echo "error: curl is required"; return 1; }
     curl -s "wttr.in/${1:-}"
 }
 
 # Git commit browser
 fshow() {
+    command -v fzf &>/dev/null || { echo "error: fzf is required (brew install fzf)"; return 1; }
     git log --graph --color=always \
         --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
     fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
